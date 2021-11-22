@@ -1,21 +1,33 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import './Cart.css';
+import SingleDev from '../../singleDev/SingleDev';
 const Cart = (props) => {
+    const {cart} = props;
+    const userIcon = <FontAwesomeIcon icon={faUser} />
     
-    const {name, location, image, rate} = props.developer;
-    const mapMarkerIcon = <FontAwesomeIcon icon={faMapMarkedAlt} />
+
+    // total hire amount and dev name
+    let total = 0;
+    let developerName = [];
+    for (const developer of cart) {
+        total = total + developer.rate;
+        developerName.push(developer);
+    }
     return (
         <div>
-            <div className="w-100 single-dev">
-                <div >
-                    <h1> {name} </h1>
-                    <span> {mapMarkerIcon} {location} </span>
-                    <p>Rate: $ {rate}/hr </p>
-                </div>
-                <div><img src={image} alt="" className='dev-image' /></div>
-            </div>
+            <h4>
+                <span className='icon'>{userIcon}</span> Developer Added: 
+                <span className='color'>{cart.length}</span>
+            </h4>
+            <h5 className='ms-4'>Total Cost: <span className='color'> $ {total}</span></h5>
+            {
+                developerName.map(developer => <SingleDev 
+                    key={developer.key}
+                    developer={developer}></SingleDev> )
+            }
         </div>
     );
 };

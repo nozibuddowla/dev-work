@@ -1,0 +1,21 @@
+.single-dev {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 5px 5px 20px lightgray;
+    padding: 10px;
+    margin: 20px 2px;
+    border-radius: 10px;
+    transition: 0.6s ease-in;
+    border: 2px solid transparent;
+    align-items: center;
+}
+
+.single-dev:hover{
+    box-shadow: none;
+}
+
+.dev-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+}
