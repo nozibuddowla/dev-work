@@ -1,11 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+
+import Cart from '../Cart/Cart';
+import Developer from '../Developer/Developer';
+
 import "./Header.css";
 
 const Header = () => {
+    const [developers, setDevelopers] = useState([]);
+    const [displayDevelopers, setDisplayDevelopers] = useState([]);
+    const [cart, setCart] = useState([]);
     const [showMediaIcons, setShowMediaIcons] = useState(false);
     const hamburgerIcon = <FontAwesomeIcon icon={faHamburger} />
+
+    useEffect(() => {
+        fetch('./developers.JSON')
+        .then(res => res.json())
+        .then(data => {
+            setDevelopers(data);
+            setDisplayDevelopers(data);
+        } )
+    }, []);
+
+    const handleSearch = event => {
+        const searchText = event.target.value;
+        const matchedDevelopers = developers.filter(developer => developer.category.toLowerCase().includes(searchText.toLowerCase())) ;
+        setDisplayDevelopers(matchedDevelopers);
+    }
+    //hire me button function
+    const handleHireMe = developer => {
+        const existDev = cart.find(dev => dev.name === developer.name);
+        if(!existDev){
+            const newCart = [...cart, developer];
+            setCart(newCart);
+        }
+        else{
+            alert('This Developer is Already Selected');
+        }
+    }
     return (
         <div className="header">
             <nav className="main-nav">
@@ -29,7 +62,7 @@ const Header = () => {
                 {/* 3rd search input */}
                 <div className="search-bar">
                     <form action="">
-                        <input type="search" placeholder="Search Talent" className="nav-search" />
+                        <input type="search" placeholder="Search Talent" className="nav-search" onChange={handleSearch} />
                     </form>
 
                     {/* hamburget menu start  */}
@@ -45,6 +78,21 @@ const Header = () => {
                 <button className="btn-default rounded-pill">Get Started</button>
                 <button className="btn-outline rounded-pill">Talk to a Recruiter</button>
             </div>
+
+            <div className="developer-container">
+                <div className="developer-details">
+                    {
+                        displayDevelopers.map(developer => <Developer key={developer.key} developer={developer} handleHireMe={handleHireMe} ></Developer> )
+                    }
+                </div>
+                
+
+                {/* cart component */}
+                <div className='mt-4 cart-container'>
+                    <Cart cart={cart} ></Cart>
+                </div>
+            </div>
+
         </div>
     );
 };

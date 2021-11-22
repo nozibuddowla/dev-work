@@ -6,7 +6,7 @@ import './Developers.css';
 
 const Developers = () => {
     const [developers,setDevelopers] = useState([]);
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
     
     useEffect(() => {
         fetch('./developers.JSON')
