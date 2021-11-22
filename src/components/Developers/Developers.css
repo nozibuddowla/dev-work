@@ -1,0 +1,12 @@
+.developer-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    margin-top: 50px;
+}
+
+.developer-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,35 @@
+.dev-info{
+    border-radius: 6px;
+    transition: 0.6s ease-in;
+    box-shadow: none;
+    border: 1px solid #beccbe;
+    cursor: pointer;
+
+}
+
+.fl-avator {
+    border-radius: 50%;
+    object-fit: cover;
+    color: #d5e0d5;
+    border: 1px solid #d5e0d5;
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fl-hourly-rate {
+    top: 0;
+    right: 0;
+}
+.fl-rating {
+    line-height: 21px;
+}
+.up-icon {
+    margin-top: 20px;
+    color: #14a800;
+    font-size: 14px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
