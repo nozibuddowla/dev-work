@@ -20,11 +20,11 @@ const Developer = (props) => {
                             </figure>
                         </div>
                         <div className="fl-hourly-rate position-absolute">
-                            <span className="fw-bold">${rate}/hr</span>
+                            <span className="fw-bold">$ {rate}/hr</span>
                         </div>
                     </div>
                     <div className="card-body mb-1 text-center">
-                        <a href="#"className="d-inline-block align-middle mb-3 mb-lg-0">
+                        <a href="#" className="mb-3 mb-lg-0">
                             <h2 className="card-title mb-0">{name}</h2>
                         </a>
                         <p> {location} </p>
@@ -41,7 +41,7 @@ const Developer = (props) => {
                 </div>
                 <div>
                     <div className="collapsable-block-bottom mt-3 text-center">
-                        <button className="btn-default rounded-pill me-0 py-2 px-4" >
+                        <button className="btn-default rounded-pill me-0 py-2 px-4" onClick={ () => props.handleHireMe(props.developer) } >
                             {plusIcon} <span>Hire me</span>
                         </button>
                     </div>

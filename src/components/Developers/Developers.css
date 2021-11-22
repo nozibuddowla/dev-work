@@ -10,3 +10,10 @@
     grid-gap: 20px;
     padding: 20px;
 }
+
+.cart-container {
+    border-left: 1px solid lightgreen;
+    margin-right: 5px;
+    margin-left: 25px;
+    padding: 10px;
+}
