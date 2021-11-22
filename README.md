@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# devWork
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project live from netlify [Click here](https://developerwork.netlify.app/).
+
+## Project Summary
+
+This Project is more like a hire web developer website where people can hire best web developer. I created fake data.
+
+## Tools
+<hr>
+<li>HTML</li>
+<li>CSS</li>
+<li>BOOTSTRAP</li>
+<li>REACT JS</li>
+
+## Project Application Function
+1.If you click hire me button you can hire developer
+2. After select a developer You can not add again and add can another Individual dev 
+3. It will give you total rate of hire a web developer
 
 ## Available Scripts
 
